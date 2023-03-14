@@ -14,7 +14,7 @@ public class PeminjamanController {
     
     public void showFormPeminjaman(){
         Perpustakaan.formPeminjaman = new FormPeminjaman();
-        Perpustakaan.formPeminjaman.show();
+        Perpustakaan.formPeminjaman.tampilkan();
     }
     
     public void cariBuku(String judul) {
