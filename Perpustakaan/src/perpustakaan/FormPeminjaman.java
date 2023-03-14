@@ -55,21 +55,11 @@ public class FormPeminjaman extends javax.swing.JFrame {
                 jButtonPinjamMouseClicked(evt);
             }
         });
-        jButtonPinjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPinjamActionPerformed(evt);
-            }
-        });
 
         jButtonBatal.setText("Batal");
         jButtonBatal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonBatalMouseClicked(evt);
-            }
-        });
-        jButtonBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBatalActionPerformed(evt);
             }
         });
 
@@ -162,18 +152,19 @@ public class FormPeminjaman extends javax.swing.JFrame {
 
     private void jButtonPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPinjamMouseClicked
         // TODO add your handling code here:
+//        tambahBuku();
+        tampilPinjaman(bukuList);
     }//GEN-LAST:event_jButtonPinjamMouseClicked
 
     private void jButtonBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBatalMouseClicked
         // TODO add your handling code here:
+//        hapusBuku();
+        tampilPinjaman(bukuList);
     }//GEN-LAST:event_jButtonBatalMouseClicked
-
-    private void jButtonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBatalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBatalActionPerformed
 
     private void jButtonKonfirmasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonKonfirmasiMouseClicked
         // TODO add your handling code here:
+        PeminjamanController.pinjam(bukuList);
     }//GEN-LAST:event_jButtonKonfirmasiMouseClicked
 
     private void jButtonCariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCariMouseClicked
@@ -182,10 +173,7 @@ public class FormPeminjaman extends javax.swing.JFrame {
         Perpustakaan.controllerPencarian.cariBuku(judul);
     }//GEN-LAST:event_jButtonCariMouseClicked
 
-    private void jButtonPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPinjamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPinjamActionPerformed
-
+        //utk menampilkan buku yg dicari
       public void show(ArrayList<Buku> bukuList) {
         Object[] kolom = { "Judul" };
         DefaultTableModel model = new DefaultTableModel(kolom, 0);
@@ -198,19 +186,22 @@ public class FormPeminjaman extends javax.swing.JFrame {
         jtBuku.setModel(model);
     }
       
+     //utk menambahkan buku yg dipinjam
+      
       ArrayList<Buku> bukuList;
       
       public void tambahBuku(Buku buku, int lama) {
           if (lama <= 3) {
             bukuList.add(buku);
           } else {
-              DialogUI dialogUI = new DialogUI("Lama peminjaman tidak boleh lebih dari 3 hari");
+              DialogUI dialogUI = new DialogUI("Lama peminjaman maksimal 3 hari");
               dialogUI.pack();
               dialogUI.setLocationRelativeTo(null);
               dialogUI.setVisible(true);
           }
-          tampilPinjaman(bukuList);
      } 
+      
+      //untuk menampilkan buku yang dipinjam
       
       public void tampilPinjaman(ArrayList<Buku> bukuList) {
         Object[] kolom = { "Judul" };
@@ -222,6 +213,16 @@ public class FormPeminjaman extends javax.swing.JFrame {
         }
         
         jtBukuPinjaman.setModel(model);
+      }
+      
+      //untuk membatalkan buku yang dipinjam
+      
+      public void hapusBuku(Buku buku) {
+        for (Buku bukuLoop : bukuList) {
+            if (bukuLoop.judul == buku.judul) {
+                bukuList.remove(bukuLoop);
+            }
+        }  
       }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
