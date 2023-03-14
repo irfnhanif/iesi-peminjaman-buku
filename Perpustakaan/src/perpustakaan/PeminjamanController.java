@@ -36,4 +36,8 @@ public class PeminjamanController {
             dialogUI.setVisible(true);
         }
     }
+    
+    public void pinjam(BukuDipinjam[] bukuPinjam){
+        
+    }
 }
