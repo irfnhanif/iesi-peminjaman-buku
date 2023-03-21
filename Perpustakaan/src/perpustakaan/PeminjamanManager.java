@@ -9,5 +9,11 @@ package perpustakaan;
  * @author Hanif
  */
 public class PeminjamanManager {
-    
+    public boolean save(BukuDipinjam[] bukuDipinjamCollection){
+        Peminjaman peminjaman = new Peminjaman();
+        
+        for(BukuDipinjam bukuDipinjam: bukuDipinjamCollection ){
+            peminjaman.getDaftarBuku.add()
+        }
+    }
 }

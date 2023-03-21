@@ -9,5 +9,9 @@ package perpustakaan;
  * @author Hanif
  */
 public class Peminjaman {
+    private BukuDipinjam[] daftarBuku;
     
+    public void setDaftarBuku(){
+        
+    }
 }
