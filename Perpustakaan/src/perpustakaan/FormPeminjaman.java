@@ -153,13 +153,13 @@ public class FormPeminjaman extends javax.swing.JFrame {
     private void jButtonPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPinjamMouseClicked
         // TODO add your handling code here:
 //        tambahBuku();
-        tampilPinjaman(bukuList);
+        tampilPinjaman(bukuDipinjam);
     }//GEN-LAST:event_jButtonPinjamMouseClicked
 
     private void jButtonBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBatalMouseClicked
         // TODO add your handling code here:
 //        hapusBuku();
-        tampilPinjaman(bukuList);
+        tampilPinjaman(bukuDipinjam);
     }//GEN-LAST:event_jButtonBatalMouseClicked
 
     private void jButtonKonfirmasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonKonfirmasiMouseClicked
@@ -188,11 +188,11 @@ public class FormPeminjaman extends javax.swing.JFrame {
       
      //utk menambahkan buku yg dipinjam
       
-      ArrayList<Buku> bukuList;
+      ArrayList<BukuDipinjam> bukuDipinjam;
       
       public void tambahBuku(Buku buku, int lama) {
           if (lama <= 3) {
-            bukuList.add(buku);
+            bukuDipinjam.add((BukuDipinjam) buku);
           } else {
               DialogUI dialogUI = new DialogUI("Lama peminjaman maksimal 3 hari");
               dialogUI.pack();
@@ -203,11 +203,11 @@ public class FormPeminjaman extends javax.swing.JFrame {
       
       //untuk menampilkan buku yang dipinjam
       
-      public void tampilPinjaman(ArrayList<Buku> bukuList) {
+      public void tampilPinjaman(ArrayList<bukuDipinjam> bukuDipinjam) {
         Object[] kolom = { "Judul" };
         DefaultTableModel model = new DefaultTableModel(kolom, 0);
         
-        for(Buku buku : bukuList) {
+        for(Buku buku : bukuDipinjam) {
             Object[] baris = { buku.judul };
             model.addRow(baris);
         }
@@ -218,9 +218,9 @@ public class FormPeminjaman extends javax.swing.JFrame {
       //untuk membatalkan buku yang dipinjam
       
       public void hapusBuku(Buku buku) {
-        for (Buku bukuLoop : bukuList) {
+        for (Buku bukuLoop : bukuDipinjam) {
             if (bukuLoop.judul.equals(buku.judul)) {
-                bukuList.remove(bukuLoop);
+                bukuDipinjam.remove((BukuDipinjam) bukuLoop);
             }
         }  
       }
