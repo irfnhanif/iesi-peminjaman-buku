@@ -37,7 +37,7 @@ public class PeminjamanController {
         }
     }
     
-    public void pinjam(ArrayList<Buku> bukuPinjam){
-        perpustakaan.PeminjamanManager.save(bukuPinjam);
+    public void pinjam(ArrayList<BukuDipinjam> bukuPinjam){
+        Perpustakaan.peminjamanManager.save(bukuPinjam);
     }
 }
