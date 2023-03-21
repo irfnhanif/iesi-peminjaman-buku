@@ -13,7 +13,9 @@ public class PeminjamanManager {
         Peminjaman peminjaman = new Peminjaman();
         
         for(BukuDipinjam bukuDipinjam: bukuDipinjamCollection ){
-            peminjaman.getDaftarBuku.add()
+            peminjaman.daftarBuku.add(bukuDipinjam);
         }
+
+        return true;
     }
 }

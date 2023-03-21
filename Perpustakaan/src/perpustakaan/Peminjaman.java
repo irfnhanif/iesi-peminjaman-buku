@@ -4,14 +4,12 @@
  */
 package perpustakaan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Hanif
  */
 public class Peminjaman {
-    private BukuDipinjam[] daftarBuku;
-    
-    public void setDaftarBuku(){
-        
-    }
+    public ArrayList<BukuDipinjam> daftarBuku;
 }
