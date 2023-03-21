@@ -14,6 +14,7 @@ public class Perpustakaan {
     public static DialogUI dialogUI;
     public static BukuProvider bukuProvider;
     public static FormPeminjaman formPeminjaman;
+    public static PeminjamanManager peminjamanManager;
     static PeminjamanController controllerPeminjaman;
     
     /**
