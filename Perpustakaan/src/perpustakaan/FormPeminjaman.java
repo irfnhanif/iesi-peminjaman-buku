@@ -163,14 +163,14 @@ public class FormPeminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBatalMouseClicked
 
     private void jButtonKonfirmasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonKonfirmasiMouseClicked
-        // TODO add your handling code here:
-        PeminjamanController.pinjam(bukuList);
+        // TODO add your handling code here:s
+        Perpustakaan.controllerPeminjaman.pinjam(bukuList);
     }//GEN-LAST:event_jButtonKonfirmasiMouseClicked
 
     private void jButtonCariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCariMouseClicked
         // TODO add your handling code here:
         String judul = jTextFieldJudul.getText();
-        Perpustakaan.controllerPencarian.cariBuku(judul);
+        Perpustakaan.controllerPeminjaman.cariBuku(judul);
     }//GEN-LAST:event_jButtonCariMouseClicked
 
         //utk menampilkan buku yg dicari
@@ -219,7 +219,7 @@ public class FormPeminjaman extends javax.swing.JFrame {
       
       public void hapusBuku(Buku buku) {
         for (Buku bukuLoop : bukuList) {
-            if (bukuLoop.judul == buku.judul) {
+            if (bukuLoop.judul.equals(buku.judul)) {
                 bukuList.remove(bukuLoop);
             }
         }  
