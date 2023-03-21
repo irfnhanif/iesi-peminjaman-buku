@@ -4,12 +4,14 @@
  */
 package perpustakaan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Hanif
  */
 public class PeminjamanManager {
-    public boolean save(BukuDipinjam[] bukuDipinjamCollection){
+    public boolean save(ArrayList<BukuDipinjam> bukuDipinjamCollection){
         Peminjaman peminjaman = new Peminjaman();
         
         for(BukuDipinjam bukuDipinjam: bukuDipinjamCollection ){
